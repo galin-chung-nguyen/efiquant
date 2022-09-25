@@ -1,0 +1,204 @@
+{
+  "USDT": [
+    {
+      "BuyPrice": 0.09149,
+      "SellPrice": 0.09267,
+      "BuyTime": null,
+      "SellTime": null,
+      "orderId": null,
+      "quantity": 114.7,
+      "diff": "1.2897584435457432%"
+    },
+    {
+      "BuyPrice": 0.09276,
+      "SellPrice": 0.09394,
+      "BuyTime": null,
+      "SellTime": null,
+      "orderId": null,
+      "quantity": 113.3,
+      "diff": "1.272100043122036%"
+    },
+    {
+      "BuyPrice": 6.45,
+      "SellPrice": 6.538,
+      "BuyTime": 1610913652914,
+      "SellTime": 1610913479558,
+      "orderId": 55910320,
+      "quantity": 1.703,
+      "diff": "1.364341085271319%"
+    },
+    {
+      "BuyPrice": 0.06791,
+      "SellPrice": 0.06895,
+      "BuyTime": 1610915019642,
+      "SellTime": 1610914897308,
+      "orderId": 15695632,
+      "quantity": 220.2,
+      "diff": "1.5314386688263868%"
+    },
+    {
+      "BuyPrice": 0.06896,
+      "SellPrice": 0.06737,
+      "BuyTime": 1610915301301,
+      "SellTime": 1610915021143,
+      "orderId": 15696588,
+      "quantity": 216.8,
+      "diff": "-2.3056844547563724%"
+    },
+    {
+      "BuyPrice": 0.06769,
+      "SellPrice": 0.06604,
+      "BuyTime": 1610915697114,
+      "SellTime": 1610915302301,
+      "orderId": 15697725,
+      "quantity": 221.9,
+      "diff": "-2.437583099423842%"
+    },
+    {
+      "BuyPrice": 0.06608,
+      "SellPrice": 0.06714,
+      "BuyTime": 1610915772289,
+      "SellTime": 1610915698295,
+      "orderId": 15700351,
+      "quantity": 226.2,
+      "diff": "1.6041162227602985%"
+    },
+    {
+      "BuyPrice": 0.06739,
+      "SellPrice": 0.06641,
+      "BuyTime": 1610915867200,
+      "SellTime": 1610915774236,
+      "orderId": 15701107,
+      "quantity": 222.7,
+      "diff": "-1.4542216946134567%"
+    },
+    {
+      "BuyPrice": 0.01629,
+      "SellPrice": 0.01646,
+      "BuyTime": 1610956686721,
+      "SellTime": 1610956675561,
+      "orderId": 28492055,
+      "quantity": 668.4,
+      "diff": "1.043585021485574%"
+    },
+    {
+      "BuyPrice": 0.01643,
+      "SellPrice": 0.01619,
+      "BuyTime": 1610956795711,
+      "SellTime": 1610956689315,
+      "orderId": 28492333,
+      "quantity": 616.2,
+      "diff": "-1.4607425441266015%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.099,
+      "SellPrice": 7.066,
+      "BuyTime": "Mon Jan 18 2021 15:40:07 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 15:39:49 GMT+0700 (Indochina Time)",
+      "orderId": 56171917,
+      "quantity": 1.553,
+      "diff": "-0.464854204817585%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.164,
+      "SellPrice": 7.078,
+      "BuyTime": "Mon Jan 18 2021 15:41:00 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 15:40:13 GMT+0700 (Indochina Time)",
+      "orderId": 56172701,
+      "quantity": 1.551,
+      "diff": "-1.2004466778336043%"
+    },
+    {
+      "symbol": "RSRUSDT",
+      "BuyPrice": 0.04236,
+      "SellPrice": 0.04291,
+      "BuyTime": "Mon Jan 18 2021 15:48:32 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 15:43:43 GMT+0700 (Indochina Time)",
+      "orderId": 61663546,
+      "quantity": 259.1,
+      "diff": "1.2983947119924337%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.432,
+      "SellPrice": 7.334,
+      "BuyTime": "Mon Jan 18 2021 15:55:27 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 15:53:37 GMT+0700 (Indochina Time)",
+      "orderId": 56185078,
+      "quantity": 1.475,
+      "diff": "-1.318622174381065%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.356,
+      "SellPrice": 7.248,
+      "BuyTime": "Mon Jan 18 2021 15:56:56 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 15:55:30 GMT+0700 (Indochina Time)",
+      "orderId": 56186973,
+      "quantity": 1.494,
+      "diff": "-1.4681892332789512%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.31,
+      "SellPrice": 7.378,
+      "BuyTime": "Mon Jan 18 2021 15:57:23 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 15:57:00 GMT+0700 (Indochina Time)",
+      "orderId": 56187953,
+      "quantity": 1.499,
+      "diff": "0.9302325581395419%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.378,
+      "SellPrice": 7.457,
+      "BuyTime": "Mon Jan 18 2021 15:58:07 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 15:57:26 GMT+0700 (Indochina Time)",
+      "orderId": 56188516,
+      "quantity": 1.485,
+      "diff": "1.0707508809975568%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.333,
+      "SellPrice": 7.229,
+      "BuyTime": "Mon Jan 18 2021 16:01:12 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 16:00:06 GMT+0700 (Indochina Time)",
+      "orderId": 56190476,
+      "quantity": 1.496,
+      "diff": "-1.4182462839219976%"
+    },
+    {
+      "symbol": "XZCUSDT",
+      "BuyPrice": 7.493,
+      "SellPrice": 7.713,
+      "BuyTime": "Mon Jan 18 2021 16:51:47 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 16:27:21 GMT+0700 (Indochina Time)",
+      "orderId": 56203311,
+      "quantity": "1.473/1.475",
+      "diff": "2.9360736687575035%"
+    },
+    {
+      "symbol": "GTOUSDT",
+      "BuyPrice": 0.01769,
+      "SellPrice": 0.01722,
+      "BuyTime": "Mon Jan 18 2021 16:56:08 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 16:51:52 GMT+0700 (Indochina Time)",
+      "orderId": 28565893,
+      "quantity": "622.1/622.8",
+      "diff": "-2.656868287167901%"
+    },
+    {
+      "symbol": "UNFIUSDT",
+      "BuyPrice": 9.0398,
+      "SellPrice": 8.729,
+      "BuyTime": "Mon Jan 18 2021 19:54:29 GMT+0700 (Indochina Time)",
+      "SellTime": "Mon Jan 18 2021 19:57:58 GMT+0700 (Indochina Time)",
+      "orderId": 43986898,
+      "quantity": "1.21/1.22",
+      "diff": "-3.4381291621496097%"
+    }
+  ]
+}

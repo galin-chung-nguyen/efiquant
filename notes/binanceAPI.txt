@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/68836406/binance-api-list-all-symbols-with-their-names-from-a-public-endpoint

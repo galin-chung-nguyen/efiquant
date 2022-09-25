@@ -6,9 +6,30 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "axios": "^0.27.2",
+    "binance-api-node": "^0.11.40",
+    "fs": "^0.0.1-security",
+    "graphql": "^16.5.0",
+    "igniteui-react-charts": "^16.16.3",
+    "igniteui-react-core": "^16.16.3",
+    "igniteui-react-excel": "^16.16.3",
+    "igniteui-react-gauges": "^16.16.3",
+    "igniteui-react-grids": "^16.16.3",
+    "igniteui-react-maps": "^16.16.3",
+    "igniteui-react-spreadsheet": "^16.16.3",
+    "memory-cache": "^0.2.0",
+    "net": "^1.0.2",
     "next": "latest",
+    "next-redux-wrapper": "^7.0.5",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "17.0.35",

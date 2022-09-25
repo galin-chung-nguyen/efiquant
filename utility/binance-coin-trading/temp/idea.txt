@@ -1,0 +1,8 @@
+Fast trade testing : 10 USDT
+- Choose the coin which fluctuates most & has good potential within 3 hours
++ in the last 15 minutes, it should be decreases by at least 1.5% and
+  at the current time, the price of this coin should be at least 0.25% more than the close price of the previous 15 min 
+  in the last 2 hour, there must be at least one time the coin rise at least 1.5%
+- If the current coin drops below -1.5% than the buy price -> sell immediately with the market price
+  If the current coin rises above 1.5% than the buy price -> -------------------------------------
+  Coin will be kept for at most 30min
