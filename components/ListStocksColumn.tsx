@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { AiOutlineStock } from "react-icons/ai"
 import Link from 'next/link';
+import img from "next/image";
 
-function checkMatchSearchKeyword(s: string, keyword: string): boolean{
-    if(!s) return false;
+function checkMatchSearchKeyword(s: string, keyword: string): boolean {
+    if (!s) return false;
     keyword = keyword.toLowerCase().trim();
     s = s.toLowerCase().trim();
 
@@ -28,33 +29,33 @@ export default function ListStocksColumn({ latestTickersData = {} }: { latestTic
                 <div className='search_input_box p-3 pt-1 w-full'>
                     <div className='bg-gray-100 rounded-lg py-2 px-4 flex items-center border-2 border-white focus-within:border-infinaPrimary'>
                         <AiOutlineStock className='text-gray-400 mr-2' />
-                        <input type="text" name="search_asset" placeholder='Search asset...' value = {searchKeyword} onChange = {e => setSearchKeyword(e.target.value)} className='bg-gray-100 outline-none text-base flex-1' />
+                        <input type="text" name="search_asset" placeholder='Search asset...' value={searchKeyword} onChange={e => setSearchKeyword(e.target.value)} className='bg-gray-100 outline-none text-base flex-1' />
                     </div>
                 </div>
             </div>
             <div className="list-stocks-details flex-1 overflow-y-scroll overflow-x-hidden p-2">
                 {
                     latestTickersData && Object.keys(latestTickersData).map(symbol =>
-                    ((checkMatchSearchKeyword(symbol.slice(0, -4), searchKeyword) || checkMatchSearchKeyword(latestTickersData[symbol].assetName, searchKeyword)) && <Link href={`/stock/${symbol.slice(0, -4)}`} key={symbol}>
+                    ((checkMatchSearchKeyword(symbol.slice(0, -4), searchKeyword) || checkMatchSearchKeyword((latestTickersData as any)[symbol].assetName, searchKeyword)) && <Link href={`/stock/${symbol.slice(0, -4)}`} key={symbol}>
                         <a>
                             <div className="symbol_info p-2 grid grid-cols-[3fr_1fr_1fr] text-[15px] grid-flow-row auto-cols-fr hover:bg-[#e6e8ea] hover:text-[#2466eb]">
                                 <div className="symbol_name_container">
                                     <div className="flex flex-row items-center">
-                                        <img src={latestTickersData[symbol].logo} className='h-4 w-4 rounded-full' />
+                                        <img src={(latestTickersData as any)[symbol].logo} className='h-4 w-4 rounded-full' />
                                         <span className="pl-1">{symbol.slice(0, -4)}</span>
                                     </div>
                                     <div className="">
-                                        <span className="w-full text-ellipsis whitespace-nowrap italic text-sm text-[#666]">{latestTickersData[symbol].assetName}</span>
+                                        <span className="w-full text-ellipsis whitespace-nowrap italic text-sm text-[#666]">{(latestTickersData as any)[symbol].assetName}</span>
                                     </div>
                                 </div>
                                 <div className="symbol_price_container">
-                                    <span className={latestTickersData[symbol].priceChange >= 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
-                                        {Math.round(latestTickersData[symbol].curDayClose * 100000) / 100000}
+                                    <span className={(latestTickersData as any)[symbol].priceChange >= 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
+                                        {Math.round((latestTickersData as any)[symbol].curDayClose * 100000) / 100000}
                                     </span>
                                 </div>
                                 <div className="symbol_percent_volume_container">
-                                    <span className={latestTickersData[symbol].priceChange >= 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
-                                        {latestTickersData[symbol].priceChangePercent}%
+                                    <span className={(latestTickersData as any)[symbol].priceChange >= 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
+                                        {(latestTickersData as any)[symbol].priceChangePercent}%
                                     </span>
                                 </div>
                             </div>

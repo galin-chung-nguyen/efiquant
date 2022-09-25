@@ -60,7 +60,7 @@ import * as binanceSymbolsInfo from './binanceSymbolsInfo.json';
 import { ColumnSortDescriptionCollection } from 'igniteui-react-grids';
 
 function convertTickersData(tickers: any[]) {
-    const result = {};
+    const result: any = {};
 
 
     // eventType: '24hrTicker',
@@ -89,7 +89,7 @@ function convertTickersData(tickers: any[]) {
     tickers.forEach(ticker => {
         const { eventTime, priceChange, priceChangePercent, curDayClose, ...rest } = ticker;
 
-        if(ticker.symbol.slice(-4) === "USDT")
+        if (ticker.symbol.slice(-4) === "USDT")
             result[ticker.symbol] = {
                 eventTime, priceChange, priceChangePercent, curDayClose
             };
@@ -99,7 +99,7 @@ function convertTickersData(tickers: any[]) {
 }
 
 function convertListAssetsToMap(assetsList: any[]) {
-    const result = {};
+    const result: any = {};
 
     assetsList.forEach((assetInfo: any) => {
         //     id: '577',
@@ -147,15 +147,15 @@ export function getLatestTickersData() {
 }
 
 export function listenToPairUpdates() {
-    const tickersLogoInfo = {
+    const tickersLogoInfo: any = {
         ...binanceSymbolsInfo
     };
 
-    const newTickersLogoInfo = {};
+    const newTickersLogoInfo: any = {};
 
-    for(let symbol in tickersLogoInfo){
-        if(symbol.slice(-4) !== "USDT") delete tickersLogoInfo[symbol];
-        else newTickersLogoInfo[symbol.slice(0, -5) + symbol.slice(-4)] = {...tickersLogoInfo[symbol]};
+    for (let symbol in tickersLogoInfo) {
+        if (symbol.slice(-4) !== "USDT") delete tickersLogoInfo[symbol];
+        else newTickersLogoInfo[symbol.slice(0, -5) + symbol.slice(-4)] = { ...tickersLogoInfo[symbol] };
     }
 
     memoryCache.setGlobal('pairsData', {
@@ -179,11 +179,11 @@ export function listenToPairUpdates() {
         console.log(`New ticker updates (${Object.keys(pairsData.latestTickers).length}): `, new Date(pairsData.lastFetchTime).toLocaleTimeString(), ' ~> ', curTime.toLocaleTimeString());
         const tickersUpdate = convertTickersData(tickers);
 
-        for(let symbol in tickersUpdate){
-            if(!pairsData.latestTickers.hasOwnProperty(symbol)){
+        for (let symbol in tickersUpdate) {
+            if (!pairsData.latestTickers.hasOwnProperty(symbol)) {
                 pairsData.latestTickers[symbol] = tickersUpdate[symbol];
-            }else{
-                pairsData.latestTickers[symbol] = {...pairsData.latestTickers[symbol], ...tickersUpdate[symbol] };
+            } else {
+                pairsData.latestTickers[symbol] = { ...pairsData.latestTickers[symbol], ...tickersUpdate[symbol] };
             }
         }
 

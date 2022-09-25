@@ -3,19 +3,20 @@ import { Component, JSXElementConstructor, useEffect, useState } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import { IgrFinancialChart, IgrFinancialChartModule } from 'igniteui-react-charts';
-// import { StocksUtility } from '../../utility/stock/StockUtility';
-import BinanceClient from '../../utility/binance-coin-trading/binance-client';
+// import { StocksUtility } from 'utility/stock/StockUtility';
+import BinanceClient from 'utility/binance-coin-trading/binance-client';
 import { useRouter } from 'next/router';
-import NavBar from '../../components/NavBar';
-import ListStocksColumn from '../../components/ListStocksColumn';
-import { StocksUtility } from '../../utility/stock/StockUtility';
-import TradeOrderForm from '../../components/TradeOrderForm';
-import StockData from '../../components/StockData';
-import Toast from '../../components/Toast';
-import OrderHistory from '../../components/OrderHistory';
-import Loading from '../../components/Loading';
+import NavBar from 'components/NavBar';
+import ListStocksColumn from 'components/ListStocksColumn';
+import { StocksUtility } from 'utility/stock/StockUtility';
+import TradeOrderForm from 'components/TradeOrderForm';
+import StockData from 'components/StockData';
+import Toast from 'components/Toast';
+import OrderHistory from 'components/OrderHistory';
+import Loading from 'components/Loading';
 import { useDispatch } from 'react-redux';
-import { addToastNotification } from '../../redux/actions/actions';
+import { addToastNotification } from 'redux/actions/actions';
+import img from 'next/image';
 
 let Chart: any = function () {
     return (
@@ -56,6 +57,7 @@ const StockChart = ({ stock }: { stock: string }) => {
             Chart = (props: any) => {
                 return (<IgrFinancialChart {...props} />)
             };
+
             setStockCandlesData(latestData => {
                 setLoadingChart(false);
                 return [...latestData]
@@ -83,7 +85,7 @@ const StockChart = ({ stock }: { stock: string }) => {
 
                 setAssetData(assetData);
 
-                candlesData = candlesData.map(candle => {
+                candlesData = candlesData.map((candle: any) => {
                     return {
                         open: Number(candle.open),
                         close: Number(candle.close),
@@ -96,7 +98,7 @@ const StockChart = ({ stock }: { stock: string }) => {
 
                 setStockCandlesData(candlesData);
                 console.log('Set data now ',);
-            } catch (err: string) {
+            } catch (err: any) {
                 console.log(err);
                 dispatch(addToastNotification({ message: err.message, type: "failed" }));
             }
@@ -115,31 +117,31 @@ const StockChart = ({ stock }: { stock: string }) => {
                 <div className='assetInfo flex flex-row items-center justify-center p-2 border-[#f0f0f0] border-b-2 bg-[#fafafa]'>
                     <div className="symbol-name-container flex flex-row items-center px-5">
                         <div className="pr-3">
-                            {latestTickersData && Object.keys(latestTickersData).length > 0 && <img src={latestTickersData[stock + "USDT"].logo} className="w-16 h-16 rounded-full" />}
+                            {latestTickersData && Object.keys(latestTickersData).length > 0 && <img src={(latestTickersData as any)[stock + "USDT"]?.logo} className="w-16 h-16 rounded-full" />}
                         </div>
                         <div className='flex flex-col justify-center'>
                             <span className='font-bold text-xl'>
                                 {stock} / USDT
                             </span>
                             <span className='text-[#707a8a] italic'>
-                                {latestTickersData && Object.keys(latestTickersData).length > 0 && latestTickersData[stock + "USDT"].assetName}
+                                {latestTickersData && Object.keys(latestTickersData).length > 0 && (latestTickersData as any)[stock + "USDT"].assetName}
                             </span>
                         </div>
                     </div>
                     <div className="symbol-price-container text-xl px-5">
                         ${latestTickersData && Object.keys(latestTickersData).length > 0 &&
-                            <span className={latestTickersData[stock + "USDT"].priceChange >= 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
-                                {Math.round(latestTickersData[stock + "USDT"].curDayClose * 100000) / 100000}
+                            <span className={(latestTickersData as any)[stock + "USDT"].priceChange >= 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
+                                {Math.round((latestTickersData as any)[stock + "USDT"].curDayClose * 100000) / 100000}
                             </span>
                         }
                     </div>
                     <div className="symbol-price-change-container flex flex-col items-center justify-center px-5">
                         {latestTickersData && Object.keys(latestTickersData).length > 0 && <>
-                            <span className={latestTickersData[stock + "USDT"].priceChange > 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
-                                {latestTickersData[stock + "USDT"].priceChange >= 0 ? "+" : ""} {latestTickersData[stock + "USDT"].priceChangePercent}%
+                            <span className={(latestTickersData as any)[stock + "USDT"].priceChange > 0 ? "text-[#11AD7A]" : "text-[#E64E62]"}>
+                                {(latestTickersData as any)[stock + "USDT"].priceChange >= 0 ? "+" : ""} {(latestTickersData as any)[stock + "USDT"].priceChangePercent}%
                             </span>
                             <span className='text-[#707a8a] text-sm'>
-                                ${latestTickersData[stock + "USDT"].priceChange >= 0 ? "+" : ""} {latestTickersData[stock + "USDT"].priceChange}
+                                ${(latestTickersData as any)[stock + "USDT"].priceChange >= 0 ? "+" : ""} {(latestTickersData as any)[stock + "USDT"].priceChange}
                             </span>
                         </>}
                     </div>
@@ -150,7 +152,7 @@ const StockChart = ({ stock }: { stock: string }) => {
                                     24h High
                                 </span>
                                 <span className='text-[#707a8a] text-sm'>
-                                    ${Math.max(...stockCandlesData.slice(-24).map(candle => candle.high))}
+                                    ${Math.max(...stockCandlesData.slice(-24).map((candle: any) => candle.high))}
                                 </span>
                             </>}
                     </div>
@@ -161,7 +163,7 @@ const StockChart = ({ stock }: { stock: string }) => {
                                     24h Low
                                 </span>
                                 <span className='text-[#707a8a] text-sm'>
-                                    ${Math.min(...stockCandlesData.slice(-24).map(candle => candle.low))}
+                                    ${Math.min(...stockCandlesData.slice(-24).map((candle: any) => candle.low))}
                                 </span>
                             </>}
                     </div>
@@ -172,7 +174,7 @@ const StockChart = ({ stock }: { stock: string }) => {
                                     24h Volume
                                 </span>
                                 <span className='text-[#707a8a] text-sm'>
-                                    ${StocksUtility.toShortString(stockCandlesData.slice(-24).map(candle => candle.volume | 0).reduce((a, b) => a + b, 0))}
+                                    ${StocksUtility.toShortString(stockCandlesData.slice(-24).map((candle: any) => candle.volume | 0).reduce((a, b) => a + b, 0))}
                                 </span>
                             </>}
                     </div>
@@ -208,7 +210,7 @@ const StockChart = ({ stock }: { stock: string }) => {
                     </div>
                     <StockData stock={stock} latestTickersData={latestTickersData} assetData={assetData} stockOrders={stockOrders} />
                 </div>
-                <OrderHistory />
+                <OrderHistory stock={stock} />
             </div>
             <Toast />
         </div >

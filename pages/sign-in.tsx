@@ -5,7 +5,7 @@ import { FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope, FaRegEnvelope } from '
 import { MdLock, MdLockOutline } from 'react-icons/md';
 import { AiFillContacts, AiFillContainer, AiFillLayout } from "react-icons/ai";
 import { useEffect, useState } from 'react';
-import { makeGraphqlQuery, makeGraphqlMutation } from '../apollo-client';
+import { makeGraphqlQuery, makeGraphqlMutation } from 'apollo-client';
 import { gql } from '@apollo/client';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ const SignInForm = () => {
   });
 
   const validateSignUpData = () => {
-    const newErrorState = {
+    const newErrorState: any = {
       username: "",
       password: ""
     }
@@ -95,7 +95,7 @@ const SignInForm = () => {
       localStorage.setItem('jwtToken', access_token);
       window.location.href = '/stock/BTC';
 
-    } catch (err: Error) {
+    } catch (err: any) {
       setErrorState({
         username: err.message.toLowerCase().includes("username") ? "* " + err.message : "",
         password: err.message.toLowerCase().includes("password") ? "* " + err.message : ""

@@ -1,18 +1,18 @@
-import '../styles/globals.css'
+import 'styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ApolloProvider, gql } from "@apollo/client";
-import client, { makeGraphqlQuery } from "../apollo-client";
+import client, { makeGraphqlQuery } from "apollo-client";
 
-import { wrapper, store } from "../redux/reduxStore";
+import { wrapper, store } from "redux/reduxStore";
 import { Provider } from "react-redux";
 import { useEffect, useState } from 'react';
-import { setJwtTokenAction, setUserInfoAction } from '../redux/actions/actions';
+import { setJwtTokenAction, setUserInfoAction } from 'redux/actions/actions';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import memoryCache from '../utility/mem-cache/mem-cache';
-import { listenToPairUpdates } from '../utility/binance-coin-trading/pairsManager';
-import Toast from '../components/Toast';
-import { fetchUserInfo } from '../graphql/queries/fetchUserInfo';
+import memoryCache from 'utility/mem-cache/mem-cache';
+import { listenToPairUpdates } from 'utility/binance-coin-trading/pairsManager';
+import Toast from 'components/Toast';
+import { fetchUserInfo } from 'graphql/queries/fetchUserInfo';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);

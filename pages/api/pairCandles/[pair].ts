@@ -1,8 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import BinanceClient from '../../../utility/binance-coin-trading/binance-client';
-import { getLatestpairsData } from '../../../utility/binance-coin-trading/pairsManager';
-import memoryCache from '../../../utility/mem-cache/mem-cache';
+import BinanceClient from 'utility/binance-coin-trading/binance-client';
+import memoryCache from 'utility/mem-cache/mem-cache';
 
 type Data = {
     candlesData: Object[]
@@ -14,7 +13,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    const { pair } = req.query;
+    const { pair }: { pair: string } = req.query as any;
 
     if (!pair) {
         res.status(400).json({
@@ -61,7 +60,7 @@ export default async function handler(
     }
 
     let result: any[] = [];
-    
+
     try {
         const data = await Promise.all(candlesRequestPromise);
 
@@ -70,7 +69,7 @@ export default async function handler(
         // console.log(new Date(data[1][0].openTime).toUTCString());
         // console.log(new Date(data[2][0].openTime).toUTCString());
         result = [...data[2], ...data[1], ...data[0]];
-    } catch (err: Error) {
+    } catch (err: any) {
         console.log(err);
         res.status(400).json({
             error: `Some error occured: ${err.message}`

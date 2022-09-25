@@ -3,7 +3,7 @@ import { AiOutlineStock } from "react-icons/ai"
 import Link from 'next/link';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
-export default function StockData({ stock, latestTickersData, assetData, stockOrders = { "BUY": [], "SELL": [] } }) {
+export default function StockData({ stock, latestTickersData, assetData, stockOrders = { "BUY": [], "SELL": [] } }: { stock: any, latestTickersData: any, assetData: any, stockOrders: any }) {
 
     // useEffect(() => {
     //     console.log(stock);
@@ -86,9 +86,9 @@ export default function StockData({ stock, latestTickersData, assetData, stockOr
                     </tr>
                     <div className="buy-order-container hover:bg-[#f5f5f5] cursor-pointer h-[250px] overflow-y-scroll">
                         {
-                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map(order => (
-                                <tr className="grid grid-cols-3 py-1 items-center">
-                                    <td className="text-[#e62323]">{latestTickersData && latestTickersData[stock + "USDT"] ? latestTickersData[stock + "USDT"].curDayClose : Math.floor(Math.random() * 100000000)/1000}</td>
+                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((order, key) => (
+                                <tr key={key} className="grid grid-cols-3 py-1 items-center">
+                                    <td className="text-[#e62323]">{latestTickersData && latestTickersData[stock + "USDT"] ? latestTickersData[stock + "USDT"].curDayClose : Math.floor(Math.random() * 100000000) / 1000}</td>
                                     <td className="flex flex-row place-content-end">0.9311631</td>
                                     <td className="flex flex-row place-content-end">1262.23</td>
                                 </tr>
@@ -114,9 +114,9 @@ export default function StockData({ stock, latestTickersData, assetData, stockOr
                     </tr>
                     <div className="sell-order-container hover:bg-[#f5f5f5] cursor-pointer h-[250px] overflow-y-scroll">
                         {
-                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map(order => (
-                                <tr className="grid grid-cols-3 py-1 items-center">
-                                    <td className="text-[#13BF86]">{latestTickersData && latestTickersData[stock + "USDT"] ? latestTickersData[stock + "USDT"].curDayClose : Math.floor(Math.random() * 100000000)/1000}</td>
+                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((order, key) => (
+                                <tr key={key} className="grid grid-cols-3 py-1 items-center">
+                                    <td className="text-[#13BF86]">{latestTickersData && latestTickersData[stock + "USDT"] ? latestTickersData[stock + "USDT"].curDayClose : Math.floor(Math.random() * 100000000) / 1000}</td>
                                     <td className="flex flex-row place-content-end">0.9311631</td>
                                     <td className="flex flex-row place-content-end">1262.23</td>
                                 </tr>

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import React, { useRef, useEffect, useState } from "react";
+import img from 'next/image';
 
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-function useOutsideAlerter(ref, handleClickOutside) {
+function useOutsideAlerter(ref: any, handleClickOutside: any) {
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
@@ -72,20 +73,20 @@ function digestStringIntoColor(x: string): string {
     }
 
     sum %= Object.keys(avatarColors).length;
-    return avatarColors[Object.keys(avatarColors)[sum]];
+    return (avatarColors as any)[Object.keys(avatarColors)[sum]];
 }
 
 export default function NavBar() {
-    const user = useSelector(state => state.user);
+    const user = useSelector((state: any) => state.user);
     const menuRef = useRef(null);
     const userAvatarRef = useRef(null);
 
     const [showAccountDropdownMenu, setShowAccountDropdownMenu] = useState(false);
-    useOutsideAlerter(menuRef, (event) => {
-        if (userAvatarRef.current && userAvatarRef.current.contains(event.target)) {
+    useOutsideAlerter(menuRef, (event: any) => {
+        if (userAvatarRef.current && (userAvatarRef.current as any).contains(event.target)) {
             setShowAccountDropdownMenu(prev => !prev);
         } else {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
+            if (menuRef.current && !(menuRef.current as any).contains(event.target)) {
                 setShowAccountDropdownMenu(false);
             }
         }
@@ -146,11 +147,11 @@ export default function NavBar() {
                                     user && user.first_name && user.middle_name && user.last_name ?
                                         <div ref={userAvatarRef} className="cursor-pointer">
                                             {user.profile_image ?
-                                            <img className="px-1 w-12 h-12 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src={user.profile_image} alt="Profile" />
-                                            :
-                                            <div className="px-1 w-12 h-12 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 text-xl text-white font-bold flex flex-row justify-center items-center" style={{ background: digestStringIntoColor(user.first_name + " " + user.middle_name + " " + user.last_name) }}>
-                                                {user.first_name.slice(0, 1)}
-                                            </div>}
+                                                <img className="px-1 w-12 h-12 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src={user.profile_image} alt="Profile" />
+                                                :
+                                                <div className="px-1 w-12 h-12 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 text-xl text-white font-bold flex flex-row justify-center items-center" style={{ background: digestStringIntoColor(user.first_name + " " + user.middle_name + " " + user.last_name) }}>
+                                                    {user.first_name.slice(0, 1)}
+                                                </div>}
                                         </div>
                                         :
                                         <>

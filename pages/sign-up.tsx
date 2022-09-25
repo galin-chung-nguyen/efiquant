@@ -5,7 +5,7 @@ import { FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope, FaRegEnvelope } from '
 import { MdLock, MdLockOutline } from 'react-icons/md';
 import { AiFillContacts, AiFillContainer, AiFillLayout } from "react-icons/ai";
 import { useEffect, useState } from 'react';
-import { makeGraphqlQuery, makeGraphqlMutation } from '../apollo-client';
+import { makeGraphqlQuery, makeGraphqlMutation } from 'apollo-client';
 import { gql } from '@apollo/client';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ const SignUpForm = () => {
   });
 
   const validateSignUpData = () => {
-    const newErrorState = {
+    const newErrorState: any = {
       username: "",
       password: "",
       first_name: "",
@@ -128,7 +128,7 @@ const SignUpForm = () => {
       localStorage.setItem('jwtToken', access_token);
       window.location.href = '/stock/BTC';
 
-    } catch (err: Error) {
+    } catch (err: any) {
       setErrorState({
         username: err.message.toLowerCase().includes("username") ? "* " + err.message : "",
         password: err.message.toLowerCase().includes("password") ? "* " + err.message : "",
@@ -242,7 +242,7 @@ const SignUp: NextPage = () => {
             <div className='border-2 w-full border-white inline-block mb-2'></div>
             <p className='mt-2'>
               <Link href='/sign-in'>
-                <a  className='text-white hover:underline'>
+                <a className='text-white hover:underline'>
                   I had an account.<br />Sign in instead.
                 </a>
               </Link>

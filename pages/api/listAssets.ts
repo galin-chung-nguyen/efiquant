@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getLatestTickersData } from '../../utility/binance-coin-trading/pairsManager';
-import memoryCache from '../../utility/mem-cache/mem-cache';
+import { getLatestTickersData } from 'utility/binance-coin-trading/pairsManager';
+import memoryCache from 'utility/mem-cache/mem-cache';
 
 type Data = {
     listAssets: Object

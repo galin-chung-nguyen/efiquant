@@ -15,8 +15,8 @@ function checkFloatNumber(x: string) {
 }
 
 function MarketOrderForm({ stock, type, balance, latestTickersData }: { stock: string, type: "BUY" | "SELL", balance: { usdt: Number, stock: Number }, latestTickersData: Object }) {
-    const jwtToken = useSelector(state => state.jwtToken);
-    const toastNotifications = useSelector(state => state.toastNotifications);
+    const jwtToken = useSelector((state: any) => state.jwtToken);
+    const toastNotifications = useSelector((state: any) => state.toastNotifications);
     const dispatch = useDispatch();
 
     const [orderInfo, setOrderInfo] = useState({
@@ -39,16 +39,17 @@ function MarketOrderForm({ stock, type, balance, latestTickersData }: { stock: s
 
     //// hooks
     useEffect(() => {
-        if (latestTickersData && Object.keys(latestTickersData).length > 0 && latestTickersData[stock + "USDT"].curDayClose) {
-            setOrderInfo(prev => ({ ...prev, price: latestTickersData[stock + "USDT"].curDayClose }));
+        if (latestTickersData && Object.keys(latestTickersData).length > 0 && (latestTickersData as any)[stock + "USDT"].curDayClose) {
+            setOrderInfo(prev => ({ ...prev, price: (latestTickersData as any)[stock + "USDT"].curDayClose }));
         }
     }, [latestTickersData]);
 
     const validateBuyOrderData = () => {
-        const newErrorState: { price: string, quantity: string, total: string } = {
+        const newErrorState: { price: string, quantity: string, total: string, general: string } = {
             price: "",
             quantity: "",
-            total: ""
+            total: "",
+            general: ""
         };
 
         console.log(orderInfo);
@@ -79,7 +80,7 @@ function MarketOrderForm({ stock, type, balance, latestTickersData }: { stock: s
 
         let validationSucceeded: boolean = true;
         Object.keys(newErrorState).forEach(field => {
-            if (newErrorState[field]) validationSucceeded = false;
+            if ((newErrorState as any)[field]) validationSucceeded = false;
         });
 
         return validationSucceeded;
@@ -159,7 +160,7 @@ function MarketOrderForm({ stock, type, balance, latestTickersData }: { stock: s
             }));
 
             setOrderSlider(0);
-        } catch (err: Error) {
+        } catch (err: any) {
 
             const newErrorState = {
                 price: "",
@@ -187,10 +188,10 @@ function MarketOrderForm({ stock, type, balance, latestTickersData }: { stock: s
         try {
             const { user } = await fetchUserInfo(jwtToken)
             dispatch(setUserInfoAction(user));
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
-        
+
     }
 
     // input handler
@@ -258,7 +259,8 @@ function MarketOrderForm({ stock, type, balance, latestTickersData }: { stock: s
                             ) : newAmount.toString(),
                             total: type === "BUY" ?
                                 (newTotal.toString()) :
-                                (prev.price ? (Number(prev.price) * newAmount).toString() : prev.total)
+                                (prev.price ? (Number(prev.price) * newAmount).toString() : prev.total),
+                            general: ""
                         }
                     });
                 }} min="0" max="100" disabled={submitButtonDisabled} />
@@ -290,7 +292,7 @@ function MarketOrderForm({ stock, type, balance, latestTickersData }: { stock: s
     )
 }
 export default function TradeOrderForm({ stock, latestTickersData }: { stock: string, latestTickersData: Object }) {
-    const user = useSelector(state => state.user);
+    const user = useSelector((state: any) => state.user);
 
     const [balance, setBalance] = useState({
         usdt: 0,

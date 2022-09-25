@@ -1,0 +1,19 @@
+version: "3.6" #This denotes that we are using version 3 of Docker Compose
+services:
+    #This section defines all the different containers we will create.
+    lo-exchange-frontend:
+        #This is the name of our Nextjs application.
+        build:
+            #This specifies the location of our Dockerfile
+            context: . #This specifies the location of our Dockerfile
+            dockerfile: Dockerfile.dev
+        command: dev
+            #command to execute
+            #This is just like the -v option for mounting disks in Docker. In this              example, we attach our code files directory to the containers’ ./code              directory.  This way, we won’t have to rebuild the images if changes are           made.
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+            - /usr/src/app/.next
+        ports:
+            #This is used to map the container’s ports to the host machine.
+            - "3000:3000"
