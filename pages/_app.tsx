@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import memoryCache from 'utility/mem-cache/mem-cache';
 import { listenToPairUpdates } from 'utility/binance-coin-trading/pairsManager';
-import Toast from 'components/Toast';
+import Toast from 'src/app/components/Toast';
 import { fetchUserInfo } from 'graphql/queries/fetchUserInfo';
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -1,5 +1,5 @@
 // const Binance = require('binance-api-node').default
-import Binance from "binance-api-node";
+import Binance from 'binance-api-node';
 
 // Authenticated client, can make signed calls
 const BinanceClient = Binance({
